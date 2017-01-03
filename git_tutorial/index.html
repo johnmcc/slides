@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Git tutorial</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Git 101</h1>
+				</section>
+				<section>
+					<p>Some common programming issues</p>
+					<ul>
+						<li>We need to regularly back up our code</li>
+						<li>We need to keep "milestones" when our code actually works!</li>
+						<li>We need to keep a history of our codebase</li>
+						<li>We need to share our code with other developers</li>
+						<li>We need to experiment with our code without affecting the main "branch"</li>
+					</ul>
+				</section>
+				<section>
+					<h1>Enter Version Control</h1>
+					<p>There are two main types of version control.</p>
+				</section>
+				<section>
+					<h1>Centralized version control</h1>
+					<ul class="fragment">
+						<li>You have to check-out the files you need to edit</li>
+						<li>The server's administrators have complete control over the codebase - not ideal for open source projects</li>
+						<li>Coders are tied to the network to make changes</li>
+					</ul>
+				</section>
+				<section>
+					<h1>Distributed version control</h1>
+					<ul class="fragment">
+						<li>Every developer has their own copy of the code, and all copies are seen as equally "valid"</li>
+						<li>There may be a "central" repository, but developers can work anywhere with their local copies</li>
+						<li>Git encourages small, incremental changes, and makes merging code between copies easy</li>
+					</ul>
+				</section>
+				<section>
+					<h1>Some Jargon</h1>
+					<ul>
+						<li>Repository - a collection of code</li>
+						<li>Staged - when we have told Git that we want to save our changes</li>
+						<li>Committed - when we have saved our changes to Git</li>
+						<li>Reverted - when we roll-back changes that have been saved</li>
+						<li>Merge - resolving differences between files</li>
+					</ul>
+				</section>
+				<section>
+					<h1>Git workflow</h1>
+					<ul>
+						<li>Initialize Git on a directory - this is our repository, or "repo"</li>
+						<li class="fragment">Add a file, and "Stage" it</li>
+						<li class="fragment">Commit the file, so that it exists in Git's history</li>
+						<li class="fragment">Edit the file, Stage the changes, and Commit</li>
+						<li class="fragment">Git logs the changes and considers the files to be unmodified again.</li>
+					</ul>
+				</section>
+				<section>
+					<h1>Let's try it out!</h1>
+				</section>
+				<section>
+					<h1>Distributing our code</h1>
+					<p>There are many hosting services for Git repos, but the most popular is Github.</p>
+					<p>On Github, we can store our code and collaborate on projects.</p>
+					<p>Sometimes we talk about "pulling down" from and "pushing up" to Github</p>
+				</section>
+				<section>
+					<h1>Let's try it out!</h1>
+				</section>
+				<section>
+					<h1>Other resources</h1>
+					<ul>
+						<li>Docs - https://git-scm.com/docs/</li>
+						<li>Interactive Tutorial - https://try.github.io/</li>
+						<li>Cheat Sheet - http://byte.kde.org/~zrusin/git/git-cheat-sheet-medium.png</li>
+						<li>Start Guide - http://rogerdudler.github.io/git-guide/</li>
+					</ul>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>

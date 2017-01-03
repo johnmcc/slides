@@ -1,0 +1,386 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Arrays 101</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>Arrays 101</h2>
+					<ul>
+						<li>What are arrays?</li>
+						<li>What are they used for?</li>
+						<li>How can I use them in my own projects?</li>
+					</ul>
+				</section>
+				<section>
+					<h2>What are arrays?</h2>
+					<p>"...A data structure consisting of a <strong>collection of elements</strong> (values or variables), each identified by at least one array index or key."</p>
+				</section>
+				<section>
+					<h2>More simply:</h2>
+					<p>An array is a new type of variable.</p>
+					<p>It is a container where we can store lists of other variables.</p>
+				</section>
+				<section>
+					<h2>What are they used for?</h2>
+					<p>Any time you want to store a <strong>collection of similiar things</strong>, think about using an array.</p>
+				</section>
+				<section>
+					<h2>Create an empty array</h2>
+					<pre><code data-trim data-noescape>
+fruits = []
+=> []
+						</code></pre>
+					<p>(Handy hint - it looks like a box for your variables!)</p>
+					<pre><code data-trim data-noescape>
+fruits = Array.new
+=> []
+						</code></pre>
+				</section>
+				<section>
+					<h2>Create an array with some items</h2>
+					<pre><code data-trim data-noescape>
+fruits = ["apple", "pear", "tangerine", "banana"]
+=> ["apple", "pear", "tangerine", "banana"]
+						</code></pre>
+					<p style="font-size: smaller">(Some programming languages need you to specify how many elements your array will have, but Ruby doesn't.)</p>
+				</section>
+				<section>
+				<h2>Accessing arrays</h2>
+					<p>Let's look at the array we created earlier.</p>
+					<pre><code data-trim data-noescape>
+fruits = ["apple", "pear", "tangerine", "banana"]
+=> ["apple", "pear", "tangerine", "banana"]
+						</code></pre>
+					<pre><code data-trim data-noescape>
+fruits[0]
+=> "apple"
+fruits[1]
+=> "pear"
+						</code></pre>
+				</section>
+				<section>
+					<p>Very important - arrays are "zero-indexed" - that means they start at 0 instead of 1!</p>
+					<p>So the first array item can be found from:</p>
+					<pre><code data-trim data-noescape>
+fruits[0]
+=> "apple"
+						</code></pre>
+				</section>
+				<section>
+					<p>What will this display?</p>
+					<pre><code data-trim data-noescape>
+fruits = ["apple", "pear", "tangerine", "banana"]
+=> ["apple", "pear", "tangerine", "banana"]
+
+fruits[100]
+						</code></pre>
+					<pre class="fragment"><code data-trim data-noescape>
+=> nil
+						</code></pre>
+				</section>
+				<section>
+					<p>We can also access elements from the end of the array:</p>
+					<pre><code data-trim data-noescape>
+fruits = ["apple", "pear", "tangerine", "banana"]
+=> ["apple", "pear", "tangerine", "banana"]
+
+fruits[-1]
+=> "banana"
+						</code></pre>
+				</section>
+				<section>
+					<p>There are some handy utility methods for getting the first and last items:</p>
+					<pre><code data-trim data-noescape>
+fruits.first
+=> "apple"
+
+fruits.first(2)
+=> ["apple", "pear"]
+
+fruits.last
+=> "banana"
+
+fruits.last(2)
+=> ["tangerine", "banana"]
+						</code></pre>
+				</section>
+				<section>
+					<h2>Adding items to an array</h2>
+					<p>You can assign by index:</p>
+					<pre class="fragment"><code data-trim data-noescape>
+fruits = ["apple", "pear", "tangerine", "banana"]
+=> ["apple", "pear", "tangerine", "banana"]
+
+fruits[4] = "peach"
+=> "peach"
+						</code></pre>
+					<p class="fragment">What will this do?</p>
+					<pre class="fragment"><code data-trim data-noescape>
+fruits[100] = "plum"
+=> "plum"
+						</code></pre>
+					<p class="fragment">(Check the fruits variable afterwards!)</p>
+				</section>
+				<section>
+					<p>We can also add items to the end of the array:</p>
+					<pre><code data-trim data-noescape>
+fruits.push("plum")
+=> ["apple", "pear", "tangerine", "banana", "plum"]
+						</code></pre>
+					<pre><code data-trim data-noescape>
+fruits << "plum"
+=> ["apple", "pear", "tangerine", "banana", "plum"]
+						</code></pre>
+				</section>
+				<section>
+					<p>You can also add an item to the start of an array</p>
+					<pre><code data-trim data-noescape>
+fruits.unshift("plum")
+=> ["plum", "apple", "pear", "tangerine", "banana"]
+						</code></pre>
+				</section>
+				<section>
+					<h2>Removing items from an array</h2>
+					<p>If you know what you want to remove, you can call the fruits.delete method:</p>
+					<pre><code data-trim data-noescape>
+fruits = ["apple", "pear", "tangerine", "banana"]
+=> ["apple", "pear", "tangerine", "banana"]
+
+fruits.delete("apple")
+=> ["pear", "tangerine", "banana"]
+						</code></pre>
+				</section>
+				<section>
+					<p>You can remove the last element from the array:</p>
+					<pre><code data-trim data-noescape>
+fruits = ["apple", "pear", "tangerine", "banana"]
+=> ["apple", "pear", "tangerine", "banana"]
+
+fruits.pop
+=> "banana"
+						</code></pre>
+				</section>
+				<section>
+					<p>You can also remove the first element from the array:</p>
+					<pre><code data-trim data-noescape>
+fruits = ["apple", "pear", "tangerine", "banana"]
+=> ["apple", "pear", "tangerine", "banana"]
+
+fruits.shift
+=> "apple"
+						</code></pre>
+				</section>
+				<section>
+					<p>Array elements can be any type of object, literal value, or variable.</p>
+					<p>Unlike some other languages, Ruby lets us use a mixture within a single array:</p>
+					<pre><code data-trim data-noescape>
+fruits_and_numbers = ["apple", 1, "pear", 2]
+=> ["apple", 1, "pear", 2]
+						</code></pre>
+				</section>
+				<section>
+					<p>We can even put arrays inside arrays!</p>
+					<pre><code data-trim data-noescape>
+numbers = [1, 2, 3, 4, [5, 6, 7]]
+						</code></pre>
+					<p>What will numbers.count give us?</p>
+					<p>What will numbers.pop give us?</p>
+					<p>Try these now!</p>
+				</section>
+				<section>
+					<p>Using operators, we can:</p>
+					<p>Add arrays together</p>
+					<pre><code data-trim data-noescape>
+[1, 2, 3] + [3, 4, 5]
+=> [1, 2, 3, 3, 4, 5]
+						</code></pre>
+					<p>Remove elements from an array</p>
+					<pre><code data-trim data-noescape>
+[1, 2, 3] - [3, 4, 5]
+=> [1, 2]
+						</code></pre>
+				</section>
+				<section>
+					<p>Check which elements exist in both arrays</p>
+					<pre><code data-trim data-noescape>
+[1, 2, 3] & [3, 4, 5]
+=> [3]
+						</code></pre>
+					<p>Return elements that are in either array</p>
+					<pre><code data-trim data-noescape>
+[1, 2, 3] | [3, 4, 5]
+=> [1, 2, 3, 4, 5]
+						</code></pre>
+				</section>
+				<section>
+					<section>
+						<h2>More handy methods</h2>
+						<p>These should give you a flavour of some of the things you can do with arrays. </p>
+						<p>Check the documentation for more detail.</p>
+					</section>
+					<section>
+						<h2>Count elements in an array:</h2>
+						<pre><code data-trim data-noescape>
+fruits = ["apple", "pear", "tangerine", "banana"]
+=> ["apple", "pear", "tangerine", "banana"]
+
+fruits.size
+=> 4
+							</code></pre>
+					</section>
+					<section>
+						<h2>Reverse elements in an array:</h2>
+						<pre><code data-trim data-noescape>
+fruits = ["apple", "pear", "tangerine", "banana"]
+=> ["apple", "pear", "tangerine", "banana"]
+
+fruits.reverse
+=> ["banana", "tangerine", "pear", "apple"]
+							</code></pre>
+					</section>
+					<section>
+						<h2>Cycle through, or rotate through an array:</h2>
+						<pre><code data-trim data-noescape>
+fruits = ["apple", "pear", "tangerine", "banana"]
+=> ["apple", "pear", "tangerine", "banana"]
+
+fruits.rotate
+=> ["pear", "tangerine", "banana", "apple"]
+							</code></pre>
+					</section>
+					<section>
+						<h2>Shuffle array elements randomly:</h2>
+						<pre><code data-trim data-noescape>
+fruits = ["apple", "pear", "tangerine", "banana"]
+=> ["apple", "pear", "tangerine", "banana"]
+
+fruits.shuffle
+=> ["pear", "banana", "apple", "tangerine"]
+							</code></pre>
+					</section>
+					<section>
+						<h2>Return a random array element:</h2>
+						<pre><code data-trim data-noescape>
+fruits = ["apple", "pear", "tangerine", "banana"]
+=> ["apple", "pear", "tangerine", "banana"]
+
+fruits.sample
+=> "pear"
+
+fruits.sample(2)
+=> ["tangerine", "apple"]
+							</code></pre>
+					</section>
+					<section>
+						<p>We can ask arrays about their content:</p>
+						<pre><code style="max-height:490px" data-trim data-noescape>
+fruits = ["apple", "pear", "tangerine", "banana"]
+=> ["apple", "pear", "tangerine", "banana"]
+
+fruits.any? {|fruit| fruit.length < 5}
+=> true
+
+fruits.all? {|fruit| fruit.length < 10}
+=> true
+
+fruits.none? {|fruit| fruit.length < 3}
+=> true
+
+fruits.include? "apple"
+=> true
+
+fruits.max
+=> "tangerine"
+
+fruits.min
+=> "apple"
+							</code></pre>
+					</section>
+					<section>
+						<p>We can manipulate arrays to change their structure:</p>
+						<pre><code data-trim data-noescape>
+["apple", "pear"].concat( ["plum"] )
+=> ["apple", "pear", "plum"]
+
+["apple", ["tangerine", "banana"]].flatten
+=> ["apple", "tangerine", "banana"]
+
+["apple", "pear", nil, nil].compact
+=> ["apple", "pear"]
+
+["apple", "apple", "pear"].uniq 
+=> ["apple", "pear"]
+							</code></pre>
+					</section>
+					<section>
+						<p>We can transform arrays into other objects (for example strings):</p>
+						<pre><code data-trim data-noescape>
+["apple", "pear", "tangerine", "banana"].join(" / ")
+=> "apple / pear / tangerine / banana"
+							</code></pre>
+					</section>
+				</section>
+				<section>
+					<h2>Important!</h2>
+					<p>When we call a method on an array, <strong>we get a new array back</strong>. If we want to change the original array, we can use a bang method.</p>
+						<pre><code data-trim data-noescape>
+fruits = ["apple", "pear", "tangerine", "banana"]
+=> ["apple", "pear", "tangerine", "banana"]
+
+fruits.sort!
+=> ["apple", "banana", "pear", "tangerine"]
+							</code></pre>
+						<p>This lets us permanently change an array.</p>
+				</section>
+				<section>
+					<p>More resources</p>
+					<ul>
+						<li>https://ruby-doc.org/core-2.2.0/Array.html</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Any Questions?</h2>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
