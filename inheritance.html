@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Inheritance 101</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<style>
+			.reveal h1 {
+				font-size: 2em;
+			}
+			.reveal p {
+				text-align: left;
+			}
+			.reveal ul {
+				width: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section><h1>Inheritance 101</h1></section>
+				<section>
+					<h1>The problem</h1>
+					<p>"How do we model multiple classes when they share properties or behaviour?"</p>
+					<p>For example:</p>
+					<ul>
+						<li>A sparrow can fly, but so can a crow, a seagull etc.</li>
+						<li>A car has wheels, and an engine that can start.</li>
+					</ul>
+					<p>We could repeat the code in each class, but this would violate the DRY principle. (Don't repeat yourself!)</p>
+				</section>
+				<section>
+					<h1>Let's take a look.</h1>
+					<img src="/images/dustbin.jpg" alt="Dustbin" />
+				</section>
+				<section>
+					<h1>A better way</h1>
+					<p>We can move the common functionality to a <strong>super class</strong>.</p>
+					<p>Let's look at how to do this.</p>
+					<p style="font-size:smaller">(We can and should check that our tests still pass - this is one of the benefits of working in a TDD fashion)</p>
+				</section>
+				<section>
+					<h1>Terminology</h1>
+					<ul>
+						<li>Superclass - the parent class for one or more classes</li>
+						<li>Subclass - the child class of a parent</li>
+						<li>Inheritance - when a child class takes on the behaviour of a parent class</li>
+						<li>Overriding - when a child class overrides the functionality in a parent class - let's look at this in more detail.</li>
+					</ul>
+				</section>
+				<section>
+					<h1>Super!</h1>
+					<p>If we want a class to do something unique, but <strong>also</strong> perform its parent's functionality, we can call super() in Ruby.</p>
+					<p>Let's take a look.</p>
+				</section>
+				<section>
+				<h1>Shared Constructors</h1>
+				<p>If we add a constructor to a parent class, each of our subclasses will share it.</p>
+				<p>Let's take a look.</p>
+				</section>
+				<section>
+					<p>Task! Make a Person class. This class should have:</p>
+					<ul>
+						<li>A first name</li>
+						<li>A last name</li>
+						<li>A talk() method which makes the person say their full name</li>
+					</ul>
+					<p>Make a Medic class, which:</p>
+					<ul>
+						<li>Inherits from Person</li>
+						<li>Has a heal() method</li>
+					</ul>
+					<p>Make an Agent class that talks like an agent. </p>
+					<p>("The name's Bond, James Bond")</p>
+				</section>
+				<section>
+				<h1>Limitations</h1>							
+				<p>What if we want to add a vehicle that doesn't have an engine? Or a bird that doesn't fly, like a penguin?</p>
+				<p>We could:</p>
+				<ul>
+					<li class="fragment">Overwrite start_engine to just return 'I don't have an engine'</li>
+					<li class="fragment">Remove start_engine from vehicle and put it back on Car and Motorbike</li>
+					<li class="fragment">Add another layer of inheritance to have 'EnginedVehicles' and 'HumanPoweredVehicles'</li>
+				</ul>
+				<p class="fragment">These are all stinky!</p>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
