@@ -1,5 +1,11 @@
-.reveal h1 {
+.reveal h1, .reveal h2 {
   font-size: 2em;
+  text-shadow: none;
+  text-transform: none;
+  text-align: left;
+}
+.reveal h2 {
+  font-size: 1.8em;
 }
 .reveal p {
   text-align: left;
