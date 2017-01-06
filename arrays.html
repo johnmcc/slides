@@ -36,14 +36,8 @@
 				</section>
 				<section>
 					<h2>What are arrays?</h2>
-					<p>"...A data structure consisting of a <strong>collection of elements</strong> (values or variables), each identified by at least one array index or key."</p>
-				</section>
-				<section>
-					<h2>More simply:</h2>
 					<p>An array is a new type of variable.</p>
 					<p>It is a container where we can store lists of other variables.</p>
-				</section>
-				<section>
 					<h2>What are they used for?</h2>
 					<p>Any time you want to store a <strong>collection of similiar things</strong>, think about using an array.</p>
 				</section>
@@ -58,9 +52,7 @@ fruits = []
 fruits = Array.new
 => []
 						</code></pre>
-				</section>
-				<section>
-					<h2>Create an array with some items</h2>
+					<p>Create an array with some items</p>
 					<pre><code data-trim data-noescape>
 fruits = ["apple", "pear", "tangerine", "banana"]
 => ["apple", "pear", "tangerine", "banana"]
@@ -97,7 +89,7 @@ fruits = ["apple", "pear", "tangerine", "banana"]
 
 fruits[100]
 						</code></pre>
-					<pre class="fragment"><code data-trim data-noescape>
+					<pre><code data-trim data-noescape>
 => nil
 						</code></pre>
 				</section>
@@ -130,22 +122,22 @@ fruits.last(2)
 				<section>
 					<h2>Adding items to an array</h2>
 					<p>You can assign by index:</p>
-					<pre class="fragment"><code data-trim data-noescape>
+					<pre><code data-trim data-noescape>
 fruits = ["apple", "pear", "tangerine", "banana"]
 => ["apple", "pear", "tangerine", "banana"]
 
 fruits[4] = "peach"
 => "peach"
 						</code></pre>
-					<p class="fragment">What will this do?</p>
-					<pre class="fragment"><code data-trim data-noescape>
+					<p>What will this do?</p>
+					<pre><code data-trim data-noescape>
 fruits[100] = "plum"
 => "plum"
 						</code></pre>
-					<p class="fragment">(Check the fruits variable afterwards!)</p>
+					<p>(Check the fruits variable afterwards!)</p>
 				</section>
 				<section>
-					<p>We can also add items to the end of the array:</p>
+					<p>We can also add items to the start or end of the array:</p>
 					<pre><code data-trim data-noescape>
 fruits.push("plum")
 => ["apple", "pear", "tangerine", "banana", "plum"]
@@ -154,13 +146,10 @@ fruits.push("plum")
 fruits << "plum"
 => ["apple", "pear", "tangerine", "banana", "plum"]
 						</code></pre>
-				</section>
-				<section>
-					<p>You can also add an item to the start of an array</p>
-					<pre><code data-trim data-noescape>
+						<pre><code data-trim data-noescape>
 fruits.unshift("plum")
 => ["plum", "apple", "pear", "tangerine", "banana"]
-						</code></pre>
+							</code></pre>
 				</section>
 				<section>
 					<h2>Removing items from an array</h2>
@@ -174,7 +163,7 @@ fruits.delete("apple")
 						</code></pre>
 				</section>
 				<section>
-					<p>You can remove the last element from the array:</p>
+					<p>You can remove the first or last element from the array:</p>
 					<pre><code data-trim data-noescape>
 fruits = ["apple", "pear", "tangerine", "banana"]
 => ["apple", "pear", "tangerine", "banana"]
@@ -182,16 +171,13 @@ fruits = ["apple", "pear", "tangerine", "banana"]
 fruits.pop
 => "banana"
 						</code></pre>
-				</section>
-				<section>
-					<p>You can also remove the first element from the array:</p>
-					<pre><code data-trim data-noescape>
+						<pre><code data-trim data-noescape>
 fruits = ["apple", "pear", "tangerine", "banana"]
 => ["apple", "pear", "tangerine", "banana"]
 
 fruits.shift
 => "apple"
-						</code></pre>
+							</code></pre>
 				</section>
 				<section>
 					<p>Array elements can be any type of object, literal value, or variable.</p>
@@ -222,24 +208,23 @@ numbers = [1, 2, 3, 4, [5, 6, 7]]
 [1, 2, 3] - [3, 4, 5]
 => [1, 2]
 						</code></pre>
-				</section>
-				<section>
-					<p>Check which elements exist in both arrays</p>
-					<pre><code data-trim data-noescape>
+						<p>Check which elements exist in both arrays</p>
+						<pre><code data-trim data-noescape>
 [1, 2, 3] & [3, 4, 5]
 => [3]
 						</code></pre>
-					<p>Return elements that are in either array</p>
-					<pre><code data-trim data-noescape>
+						<p>Return elements that are in either array</p>
+						<pre><code data-trim data-noescape>
 [1, 2, 3] | [3, 4, 5]
 => [1, 2, 3, 4, 5]
-						</code></pre>
+							</code></pre>
 				</section>
 				<section>
 					<section>
 						<h2>More handy methods</h2>
 						<p>These should give you a flavour of some of the things you can do with arrays. </p>
 						<p>Check the documentation for more detail.</p>
+						<p>(Press the down arrow)</p>
 					</section>
 					<section>
 						<h2>Count elements in an array:</h2>
@@ -358,11 +343,8 @@ fruits.sort!
 				<section>
 					<p>More resources</p>
 					<ul>
-						<li>https://ruby-doc.org/core-2.2.0/Array.html</li>
+						<li><a href="https://ruby-doc.org/core-2.2.0/Array.html">Array documentation for Ruby</a></li>
 					</ul>
-				</section>
-				<section>
-					<h2>Any Questions?</h2>
 				</section>
 			</div>
 		</div>
